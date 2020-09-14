@@ -1,0 +1,114 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12160\viewh14500\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Test 1:\
+- Convolutional  Network (Filters =  32, Kernel = (3, 3))\
+- Max Pool (2, 2)\
+- Hidden Layer (43 x 64 units)\
+- Hidden Layer (43 x 32 units) \
+-  Accuracy 0.911\
+\
+Test 2:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 - Convolutional  Network (Filters =  32, Kernel = (3, 3))\
+- Max Pool (2, 2)\
+- Hidden Layer (43 * 8 units)\
+- Hidden Layer (43 * 4 units) \
+- Accuracy 0.9226, result from less overfitting? much faster training speed\
+\
+Test 3:\
+- Repeat of Test 1 but with dropout (0.2) after each hidden layer\
+- Accuracy 93.02 (highest so far) \
+\
+Test 4:\
+- Test 2 with same level of dropout as Test 3 \
+- Accuracy 0.9217, dropout doesn\'92t affect accuracy of model with less layers as much \
+\
+Test 5: \
+- Test 4 but with one more hidden layer with 0.2 dropout\
+- Hidden Layer (43 * 16 units)\
+- Accuracy 0.9190, not as good as Test 4 \
+\
+Test 6: \
+- Repeat of Test 2 with more units in hidden layers \
+- (16, 8)\
+- Accuracy 93.96 (highest so far)\
+\
+Test 7: \
+- Increase in pool size to (4,4)\
+- Speed at the cost of accuracy \
+- Accuracy 0.91.70\
+\
+- Test 8\
+- Test 6 but with 64 filters instead of 32 \
+- accuracy 0.9216\
+\
+Test 9: \
+- Test 8 but with 2 more sets of convolutional + pooling layers \
+- Accuracy 0.9572, more convolution, more details, higher accuracy \
+\
+Test 10:\
+- Test 9 : increase sets of convolution by 1, add new hidden layer with (43 * 32) units, increase all dropout to 0.5\
+- Accuracy 0.9402 (204s to train model) - too many variables introduced\
+\
+Test 11:\
+- Test 10 with one less hidden layer of (43*32 units)\
+- Accuracy 0.9484 (172s) \
+\
+Test 12: \
+- Test 9 but kernel matrix in first convolutional layer = (5,5) \
+- Accuracy, way down \
+\
+Test 13:\
+- Test 9 with all kernel matrices (2, 2) \
+- Accuracy 0.9491 (118s)\
+\
+Test 14:\
+- Test 9  with a new hidden layer with units (43 * 8), all dropout back to 0.2 \
+- Matrices back to 3 x 3 \
+- Accuracy 0.9552 (170s), not that big of a difference compared to test 9 \
+\
+Test 15: \
+- Test 14 but 5 hidden layers = 8, 16, 32, 16, 8 \
+- more layers = learning rate is slower? \
+- Accuracy 0.9268 (226s) , worse performance \
+\
+Test 16:\
+- Test 14 but all filters of convolutional layer 32, hidden layer 8, 16, 8 \
+- Accuracy 0.9523 (84s)\
+\
+Test 17:\
+- 3 convolutional, max pool, hidden  (3 x 64 x (3x3), 3 x (2,2), (16, 8))\
+- Accuracy (0.9672) (153s)  (best yet)\
+\
+Test 18:\
+- 3 convolutional, max pool, hidden  (3(64, 128, 64) x (3x3), 3 x (2,2), (16, 8))\
+- Accuracy 0.9306 (175s)\
+\
+Test 19:\
+- 3 convolutional, max pool, hidden  (3 x 64 x (3x3), 3 x (2,2), (16, 8))\
+- dropout to 0.1\
+- Accuracy 0.9638 (154s)\
+\
+Test 20:\
+- 3 convolutional, max pool, hidden  (3 x 64 x (3x3), 3 x (2,2), (16, 8))\
+- no dropout \
+- Accuracy 0.9422 (165s)\
+\
+Test 21: \
+- 3 convolutional, max pool, hidden  (3 x 64 x (3x3), 3 x (2,2), (16, 8))\
+- dropout 0.3 \
+- Accuracy 0.9524 (153s)\
+\
+Test 22:\
+- Repeat of Test 17\
+- Accuracy 0.9742 (157s) \
+\
+\
+\
+\
+}
